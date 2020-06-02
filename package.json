@@ -28,32 +28,26 @@
         "url": "https://github.com/gregchamblin/vscode-json-editor.git"
     },
     "contributes": {
-        "commands": [
-            {
-                "command": "vscode-json-editor.start",
-                "title": "Start JSON Tree Editor session",
-                "category": "JSON editor",
-                "icon": {
-                    "light": "./resources/json-light.svg",
-                    "dark": "./resources/json-dark.svg"
-                }
+        "commands": [{
+            "command": "vscode-json-editor.start",
+            "title": "Start JSON Tree Editor session",
+            "category": "JSON editor",
+            "icon": {
+                "light": "./resources/json-light.svg",
+                "dark": "./resources/json-dark.svg"
             }
-        ],
+        }],
         "menus": {
-            "explorer/context": [
-                {
-                    "when": "resourceExtname == .json",
-                    "command": "vscode-json-editor.start",
-                    "group": "navigation"
-                }
-            ],
-            "editor/title": [
-                {
-                    "when": "editorLangId == json",
-                    "command": "vscode-json-editor.start",
-                    "group": "navigation"
-                }
-            ]
+            "explorer/context": [{
+                "when": "resourceExtname == .json",
+                "command": "vscode-json-editor.start",
+                "group": "navigation"
+            }],
+            "editor/title": [{
+                "when": "editorLangId == json",
+                "command": "vscode-json-editor.start",
+                "group": "navigation"
+            }]
         },
         "configuration": {
             "title": "JSON Tree Editor",
@@ -73,8 +67,7 @@
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+        "watch": "tsc -watch -p ./"
     },
     "devDependencies": {
         "@types/mocha": "^2.2.42",
