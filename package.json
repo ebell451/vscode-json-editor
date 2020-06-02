@@ -3,7 +3,7 @@
     "displayName": "Json Editor",
     "description": "Generate a tree view editor of the active JSON document",
     "version": "0.3.0",
-    "publisher": "gregchamblin",
+    "publisher": "Greg Chamblin",
     "engines": {
         "vscode": "^1.32.0"
     },
