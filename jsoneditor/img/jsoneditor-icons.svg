@@ -14,7 +14,7 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="jsoneditor-icons.svg">
   <title
-     id="title6512">JSON Editor Icons</title>
+     id="title6512">JSON Tree Editor Icons</title>
   <metadata
      id="metadata4148">
     <rdf:RDF>
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>JSON Editor Icons</dc:title>
+        <dc:title>JSON Tree Editor Icons</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
