@@ -1,3 +1,7 @@
+### 1.0.200602
+
+- Corrected some naming inconsistancies
+
 ### 1.0.0
 
 - Forked from v.0.2.3 of VSCode JSON Editor by Sunmorgus
