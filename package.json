@@ -2,16 +2,16 @@
     "name": "vscode-json-editor",
     "displayName": "Json Editor",
     "description": "Generate a tree view editor of the active JSON document",
-    "version": "0.2.4",
-    "publisher": "nickdemayo",
+    "version": "0.3.0",
+    "publisher": "gregchamblin",
     "engines": {
-        "vscode": "^1.24.0"
+        "vscode": "^1.32.0"
     },
     "icon": "resources/icon.png",
     "categories": [
         "Other"
     ],
-    "homepage": "https://github.com/sunmorgus/vscode-json-editor",
+    "homepage": "https://github.com/gregchamblin/forked-vscode-json-editor",
     "keywords": [
         "json",
         "editor",
@@ -25,14 +25,30 @@
     "main": "./out/src/extension",
     "repository": {
         "type": "git",
-        "url": "https://github.com/sunmorgus/vscode-json-editor.git"
+        "url": "https://github.com/gregchamblin/forked-vscode-json-editor.git"
     },
     "contributes": {
         "commands": [{
             "command": "vscode-json-editor.start",
             "title": "Start JSON editor session",
-            "category": "JSON editor"
+            "category": "JSON editor",
+            "icon": {
+                "light": "./resources/json-light.svg",
+                "dark": "./resources/json-dark.svg"
+            }
         }],
+        "menus": {
+            "explorer/context": [{
+                "when": "resourceExtname == .json",
+                "command": "vscode-json-editor.start",
+                "group": "navigation"
+            }],
+            "editor/title": [{
+                "when": "editorLangId == json",
+                "command": "vscode-json-editor.start",
+                "group": "navigation"
+            }]
+        },
         "configuration": {
             "title": "Json Editor",
             "properties": {
@@ -56,13 +72,15 @@
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "@types/mocha": "^2.2.48",
-        "@types/node": "^7.10.10",
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
         "aqua": "^1.0.1",
-        "tslint": "^5.20.1",
-        "tslint-microsoft-contrib": "^5.2.1",
-        "typescript": "^2.9.2",
-        "vscode": "^1.1.37"
+        "tslint": "^5.8.0",
+        "tslint-microsoft-contrib": "^5.0.3",
+        "typescript": "^2.6.1",
+        "@types/vscode": "^1.32.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "vscode": "*"
+    }
 }

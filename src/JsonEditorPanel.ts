@@ -2,13 +2,13 @@
 
 import * as path from 'path';
 import * as vscode from 'vscode';
-import { configurationSettings } from './globals/enums';
+//import { configurationSettings } from './globals/enums';
 
 export class JsonEditorPanel {
     public static currentPanel: JsonEditorPanel | undefined;
 
     private static readonly viewType: string = 'jsonEditor';
-    private static readonly extensionPrefix: string = 'vscode-json-editor';
+    //private static readonly extensionPrefix: string = 'vscode-json-editor';
 
     private readonly _panel: vscode.WebviewPanel;
     private readonly _extensionPath: string;
@@ -24,6 +24,7 @@ export class JsonEditorPanel {
                 vscode.Uri.file(path.join(this._extensionPath, 'jsoneditor'))
             ]
         });
+
         this._panel.webview.html = this.getHtmlForWebview(this._extensionPath, theme);
 
         this._panel.onDidDispose(() => this.dispose(), null, this._disposables);
@@ -43,15 +44,23 @@ export class JsonEditorPanel {
 
         vscode.window.onDidChangeActiveTextEditor(() => this.onActiveEditorChanged());
         vscode.workspace.onDidSaveTextDocument(() => this.onDocumentChanged());
+        vscode.window.onDidChangeActiveColorTheme(() => this.colorThemeKindChange(theme))
 
+        this.colorThemeKindChange(theme);
         this.onActiveEditorChanged();
     }
 
     // tslint:disable-next-line:function-name
     public static CreateOrShow(extensionPath: string): void {
-        const column = vscode.ViewColumn.Three;
-        const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration(this.extensionPrefix);
-        const theme: string = config.get(configurationSettings.theme);
+        const column = vscode.ViewColumn.Beside;
+        //const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration(this.extensionPrefix);
+        //const theme: string = config.get(configurationSettings.theme);
+
+        const theme = {
+            [vscode.ColorThemeKind.Light]: "light",
+            [vscode.ColorThemeKind.Dark]: "dark",
+            [vscode.ColorThemeKind.HighContrast]: "dark",
+        }[vscode.window.activeColorTheme.kind];
 
         if (JsonEditorPanel.currentPanel) {
             JsonEditorPanel.currentPanel._panel.reveal(column);
@@ -79,6 +88,18 @@ export class JsonEditorPanel {
             json = this._currentEditor.document.getText();
         }
         return json;
+    }
+
+    private colorThemeKindChange(theme: string): void {
+        const themenew = {
+            [vscode.ColorThemeKind.Light]: "light",
+            [vscode.ColorThemeKind.Dark]: "dark",
+            [vscode.ColorThemeKind.HighContrast]: "dark",
+        }[vscode.window.activeColorTheme.kind];
+
+        if (themenew != theme) {
+            vscode.window.showInformationMessage('Theme type change detected. Please close and reopen extension.')
+        }
     }
 
     private onActiveEditorChanged(): void {
