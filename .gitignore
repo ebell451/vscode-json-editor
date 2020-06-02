@@ -4,3 +4,4 @@ node_modules
 *.vsix
 .vscode/cpx.json
 .vscode/tasks.json
+azure-pipelines.yml
