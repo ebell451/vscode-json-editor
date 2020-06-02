@@ -18,7 +18,7 @@ export class JsonEditorPanel {
     private constructor(extensionPath: string, column: vscode.ViewColumn, theme: string) {
         this._extensionPath = extensionPath;
         this._currentEditor = vscode.window.activeTextEditor;
-        this._panel = vscode.window.createWebviewPanel(JsonEditorPanel.viewType, "Json editor", column, {
+        this._panel = vscode.window.createWebviewPanel(JsonEditorPanel.viewType, "JSON Tree Editor", column, {
             enableScripts: true,
             localResourceRoots: [
                 vscode.Uri.file(path.join(this._extensionPath, 'jsoneditor'))
