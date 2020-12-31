@@ -19,6 +19,9 @@ You can also make a right click upon a JSON file in the tree explorer, where you
 
 ## Release Notes
 
+### 1.0.201231
+- Updated to the latest jsoneditor release (9.1.7 published on 12/30/2020)
+
 ### 1.0.200602
 
 - Corrected some naming inconsistancies
