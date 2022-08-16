@@ -21,14 +21,11 @@ You can also make a right click upon a JSON file in the tree explorer, where you
 
 ## Release Notes
 
-### 1.0.220815.1
-
-Update Azure pipeline code.
-
-### 1.0.220815
+### 1.0.220816
 
 - Updated to the latest jsoneditor release (9.9.0 published on 06/13/2022)
 - There goes my hopes to do updates at least every 6 months. OOPS!
+- Various updates for pipeline, etc.
 
 ### 1.0.201231
 
